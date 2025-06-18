@@ -1,0 +1,30 @@
+---
+- name: Deploy Docker Container on Worker Machines
+  hosts: docker_workers
+  become: yes  # Run tasks with sudo/root privileges
+  vars:
+    docker_image_name: nirbhaisingh/robotics-ai-website:latest # Replace with your Docker Hub username
+    container_name: robotics-ai-webserver
+    container_port: 80
+    host_port: 80
+
+  tasks:
+    - name: Stop and remove existing container if it exists
+      docker_container:
+        name: "{{ container_name }}"
+        state: absent
+      ignore_errors: yes # Ignore errors if container doesn't exist
+
+    - name: Pull the latest Docker image
+      community.docker.docker_image:
+        name: "{{ docker_image_name }}"
+        source: pull
+
+    - name: Run the Docker container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ docker_image_name }}"
+        state: started
+        ports:
+          - "{{ host_port }}:{{ container_port }}"
+        restart_policy: always
