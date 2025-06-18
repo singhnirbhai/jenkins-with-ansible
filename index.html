@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics with AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow: hidden; /* Prevent scrollbar for initial animations */
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(20px); /* Initial state for animation */
+            animation: fadeInSlideUp 1s ease-out forwards;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        h1:hover {
+            color: #0056b3;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        p:hover {
+            transform: scale(1.02);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+        .robot-image {
+            width: 150px;
+            margin-top: 30px;
+            animation: spinAndBounce 4s infinite ease-in-out;
+        }
+
+        @keyframes fadeInSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spinAndBounce {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(45deg); }
+            50% { transform: translateY(0) rotate(90deg); }
+            75% { transform: translateY(-10px) rotate(135deg); }
+            100% { transform: translateY(0) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the World of Robotics with AI!</h1>
+        <p>Explore the fascinating intersection of artificial intelligence and robotics. From intelligent automation to autonomous systems, we are shaping the future.</p>
+        <img src="https://via.placeholder.com/150/007bff/FFFFFF?text=Robot+AI" alt="Robotics AI" class="robot-image">
+        <p>Discover how AI is empowering robots to learn, adapt, and interact with the world around us in unprecedented ways.</p>
+        <a href="#" class="cta-button">Learn More About Our Innovations</a>
+    </div>
+</body>
+</html>
